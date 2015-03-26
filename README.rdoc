@@ -1,6 +1,4 @@
 = artifactory-dep
 
-Describe your project here
-
-:include:artifactory-dep.rdoc
+gem to help deploying files to artifactory
 
