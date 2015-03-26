@@ -16,6 +16,7 @@ spec = Gem::Specification.new do |s|
   s.rdoc_options << '--title' << 'artifactory-dep' << '--main' << 'README.rdoc' << '-ri'
   s.bindir = 'bin'
   s.executables << 'artifactory-dep'
+  s.add_development_dependency('dotenv')
   s.add_development_dependency('rake')
   s.add_development_dependency('rdoc')
   s.add_development_dependency('aruba')

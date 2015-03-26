@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 require 'gli'
+require 'dotenv'
+Dotenv.load
 begin # XXX: Remove this begin/rescue before distributing your app
 require 'artifactory-dep'
 rescue LoadError
@@ -11,37 +13,18 @@ end
 
 include GLI::App
 
-program_desc 'Describe your application here'
+program_desc 'Gem to help deploying files to artifactory'
 
 version ArtifactoryDep::VERSION
 
 subcommand_option_handling :normal
 arguments :strict
 
-desc 'Describe some switch here'
-switch [:s,:switch]
-
-desc 'Describe some flag here'
-default_value 'the default'
-arg_name 'The name of the argument'
-flag [:f,:flagname]
-
-desc 'Describe publish here'
-arg_name 'Describe arguments to publish here'
+desc 'Publishes file to artifactory'
+arg_name 'filename'
 command :publish do |c|
-  c.desc 'Describe a switch to publish'
-  c.switch :s
-
-  c.desc 'Describe a flag to publish'
-  c.default_value 'default'
-  c.flag :f
   c.action do |global_options,options,args|
-
-    # Your command logic here
-     
-    # If you have any errors, just raise them
-    # raise "that command made no sense"
-
+    Commands::Publish.new(args).execute
     puts "publish command ran"
   end
 end
