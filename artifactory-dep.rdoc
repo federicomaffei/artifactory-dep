@@ -1,0 +1,5 @@
+= artifactory-dep
+
+Generate this with
+    artifactory-dep rdoc
+After you have described your command line interface

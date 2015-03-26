@@ -1,0 +1,6 @@
+= artifactory-dep
+
+Describe your project here
+
+:include:artifactory-dep.rdoc
+
