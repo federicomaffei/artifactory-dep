@@ -2,14 +2,7 @@
 require 'gli'
 require 'dotenv'
 Dotenv.load
-begin # XXX: Remove this begin/rescue before distributing your app
 require 'artifactory-dep'
-rescue LoadError
-  STDERR.puts "In development, you need to use `bundle exec bin/artifactory-dep` to run your app"
-  STDERR.puts "At install-time, RubyGems will make sure lib, etc. are in the load path"
-  STDERR.puts "Feel free to remove this message from bin/artifactory-dep now"
-  exit 64
-end
 
 include GLI::App
 
